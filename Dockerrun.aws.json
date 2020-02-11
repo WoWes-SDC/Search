@@ -1,0 +1,11 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "jtworm96/jordantopbar"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "3001"
+    }
+  ]
+}

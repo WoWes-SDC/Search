@@ -1,0 +1,137 @@
+.jordan
+  margin: 0 0
+  padding: 0px
+  width: 100%
+  display: grid
+  grid-template-columns: auto auto
+
+  .jlogo
+    grid-column: 1
+    grid-row: 1
+    display: grid
+    column-width: 150px
+
+    #jlogo
+      width: 89px
+      grid-column: 1
+      grid-row-start: 1
+      grid-row-end: 3
+      margin-left: 110%
+      cursor: pointer
+    #jauswowes
+      grid-column: 2
+      grid-row-start: 1
+      grid-row-end: 3
+      margin-left: 30%
+      font-family: Helvetica,Arial,sans-serif
+      font-weight: bold
+      color: mediumblue
+      cursor: pointer
+      
+    #jopen
+      grid-column: 2
+      grid-row-start: 1
+      grid-row-end: 3
+      margin-top: 4%
+      margin-left: 30%
+      font-family: Helvetica,Arial,sans-serif
+  
+  
+  .jsearch
+    grid-column: 2
+    grid-row: 1
+    background-image: url"./images/searchglass.png"
+    border-left: 1px solid #ccc
+    border-right: 1px solid #ccc
+
+    .jddvisible
+      position: absolute
+      z-index: 1
+      border-left: 1px solid #ccc
+      border-right: 1px solid #ccc
+      border-bottom: 1px solid #ccc
+      background-color: white
+      width: 30.5%
+      cursor: pointer
+      font-family: Helvetica,Arial,sans-serif
+
+      #jlist
+        font-family: Helvetica,Arial,sans-serif
+        list-style-type: none
+        font: 14pt
+
+      #jmenufill
+        margin-bottom: 110%
+
+    .jddinvisible
+      visibility: hidden
+       position: absolute
+        z-index: 1
+
+    #jsearch
+      height: 99%
+      width: 99%
+      font-size: 11pt
+      border: hidden
+      outline: none
+  
+  #jsearchglass
+    position: absolute
+    z-index: -1
+    grid-column: 2
+    grid-row: 1
+    width: 25px
+    height: 25px
+      
+  .juserarea
+    grid-row: 1
+    grid-column: 3
+    margin-left: 8%
+    #jaccount
+      width: 42px
+      height: 42px
+      cursor: pointer
+    #jshoppingCart
+      width: 45px
+      height: 45px
+      cursor: pointer
+
+  .jDeadlinks
+    width: 100%
+    grid-row: 2
+    grid-column: 1 / span 3
+    padding-left: 16.5%
+    padding-top: 1%
+    padding-bottom: 1%
+    border-top: 1px solid #ccc
+    border-bottom: 1px solid #ccc
+    display: grid
+    .jbuttong1
+      grid-column: 1
+      grid-row: 1
+      position: absolute
+      width: 100%
+      .jbutton1
+        font-family: Helvetica,Arial,sans-serif
+        border: hidden
+        font-weight: bold
+        font-size: 100%
+        margin-right: 2%
+        cursor: pointer
+        outline: none
+      .jbutton1:hover
+        padding-bottom: .90%
+        border-bottom: 2px solid mediumblue
+        
+    .jbuttong2
+      position: relative
+      grid-column: 2
+      grid-row: 1
+      margin-left: 40%
+      .jbutton2
+        font-family: Helvetica,Arial,sans-serif
+        border: hidden
+        font-size: 90%
+        color: mediumblue
+        outline: none
+        cursor: pointer
