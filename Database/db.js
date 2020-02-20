@@ -1,28 +1,34 @@
-const mysql = require('mysql');
+require("dotenv").config();
 
-const db = mysql.createConnection({
-   host: 'topbar.cbeaiszz6xt0.us-east-2.rds.amazonaws.com',
-   port: 3307,
-   user: 'admin',
-   password: 'ilovedocker',
-   database: 'searchbar'
+const { Pool } = require("pg");
+const isProduction = process.env.NODE_ENV === "production";
+
+const connectionString = `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}
+@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`;
+console.log(connectionString);
+const pool = new Pool({
+  connectionString: connectionString,
+  //connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
+  ssl: isProduction,
+  statement_timeout: 10
 });
+pool.connect();
 
-db.connect(() => {
-  console.log('connected to db');
-})
-
-const fuzzySearch = (search, callback) => {
-  db.query(`SELECT * FROM searchdata WHERE name LIKE '%${search}%' OR category LIKE '%${search}%' LIMIT 8;`,
-    (err, results) => {
-      if (err) {
-        callback(err);
+const getTopTen = (term, response) => {
+  console.log("hi");
+  pool.query(
+    `SELECT title FROM search WHERE title LIKE '${term}%' LIMIT 10`,
+    (error, results) => {
+      if (error) {
+        response.status(404);
       } else {
-        callback(null, results);
+        console.log(results);
+        response.status(200).json(results.rows);
       }
-    })
-}
+    }
+  );
+};
+module.exports = { getTopTen, pool };
 
-module.exports = {
-   fuzzySearch,
-}
+// else if (client.connectionParameters.statement_timeout === 100) {
+//   response.status(200);
